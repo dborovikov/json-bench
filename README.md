@@ -6,13 +6,13 @@ Run:
 
 Example output:
 
-    [info] Benchmark                Mode  Cnt        Score        Error  Units
-    [info] Bench.argonautMarshall  thrpt    5   635451.392 ±  55266.747  ops/s
-    [info] Bench.argonautParse     thrpt    5   527995.418 ± 159324.793  ops/s
-    [info] Bench.jacksonMarshall   thrpt    5  3266291.844 ± 336764.679  ops/s
-    [info] Bench.jacksonParse      thrpt    5  1288767.665 ±  51679.669  ops/s
-    [info] Bench.jawnParse         thrpt    5  2102458.413 ± 134707.359  ops/s
-    [info] Bench.playMarshall      thrpt    5   365792.942 ±   8881.600  ops/s
-    [info] Bench.playParse         thrpt    5   469023.588 ±  15983.152  ops/s
-    [info] Bench.sprayMarshall     thrpt    5  1693648.118 ±  91975.330  ops/s
-    [info] Bench.sprayParse        thrpt    5  1378434.623 ±  27930.910  ops/s
+    [info] Benchmark                Mode  Cnt      Score       Error  Units
+    [info] MarshallBench.argonaut  thrpt    5  32649.071 ±  1203.992  ops/s
+    [info] MarshallBench.jackson   thrpt    5  85938.608 ± 11273.654  ops/s
+    [info] MarshallBench.play      thrpt    5  21378.851 ±   957.831  ops/s
+    [info] MarshallBench.spray     thrpt    5  59801.193 ±  3412.802  ops/s
+    [info] ParseBench.argonaut     thrpt    5  22249.704 ±  1255.345  ops/s
+    [info] ParseBench.jackson      thrpt    5  71755.857 ±  6628.053  ops/s
+    [info] ParseBench.jawn         thrpt    5  56044.377 ±  2192.962  ops/s
+    [info] ParseBench.play         thrpt    5  23323.652 ±  1186.733  ops/s
+    [info] ParseBench.spray        thrpt    5  51767.834 ±   947.548  ops/s
