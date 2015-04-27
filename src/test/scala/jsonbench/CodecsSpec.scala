@@ -55,10 +55,5 @@ class CodecsSpec extends Specification {
       val s = codec.encode(r)
       codec.decode(s) mustEqual r
     }
-
-    "test" in {
-      val s = new SprayUserCodec().encode(r2)
-      s mustEqual ""
-    }
   }
 }
