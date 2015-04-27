@@ -3,15 +3,16 @@ package jsonbench
 import spray.json._
 import DefaultJsonProtocol._
 
-object SprayUserCodec {
-  implicit val userFormat = jsonFormat(User, "id", "email", "login")
+class SprayUserCodec extends Codec[UsersResponse] {
+  implicit val userFormat = jsonFormat(User, "id", "email", "login", "fullName", "tags")
+  implicit val userResponseFormat = jsonFormat(UsersResponse, "success", "users")
 
-  def decode(s: String): User = {
+  def decode(s: String): UsersResponse = {
     val json = s.parseJson
-    json.convertTo[User]
+    json.convertTo[UsersResponse]
   }
 
-  def encode(u: User): String = {
+  def encode(u: UsersResponse): String = {
     val json = u.toJson
     json.compactPrint
   }

@@ -4,13 +4,17 @@ import spray.json._
 import DefaultJsonProtocol._
 import jawn.support.spray.Parser
 
-object JawnUserCodec {
-  implicit val userFormat = jsonFormat(User, "id", "email", "login")
+class JawnUserCodec extends Codec[UsersResponse] {
+  implicit val userFormat = jsonFormat(User, "id", "email", "login", "fullName", "tags")
+  implicit val userResponseFormat = jsonFormat(UsersResponse, "success", "users")
 
-  def decode(s: String): User = {
+  def decode(s: String): UsersResponse = {
     val json = Parser.parseFromString(s).get
-    json.convertTo[User]
+    json.convertTo[UsersResponse]
   }
 
-  def encode(u: User): String = ???
+  def encode(u: UsersResponse): String = {
+    val json = u.toJson
+    json.compactPrint
+  }
 }

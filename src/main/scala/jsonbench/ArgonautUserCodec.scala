@@ -4,18 +4,21 @@ import argonaut._, Argonaut._
 
 import scalaz._
 
-object ArgonautUserCodec {
-  implicit def PersonCodecJson =
-    casecodec3(User.apply, User.unapply)("id", "email", "login")
+class ArgonautUserCodec extends Codec[UsersResponse] {
+  implicit def UserCodecJson =
+    casecodec5(User.apply, User.unapply)("id", "email", "login", "fullName", "tags")
 
-  def decode(s: String): User = {
-    s.decodeEither[User] match {
+  implicit def UsersResponseCodecJson =
+    casecodec2(UsersResponse.apply, UsersResponse.unapply)("success", "users")
+
+  def decode(s: String): UsersResponse = {
+    s.decodeEither[UsersResponse] match {
       case -\/(e) => throw new RuntimeException(e)
       case \/-(u) => u
     }
   }
 
-  def encode(u: User): String = {
+  def encode(u: UsersResponse): String = {
     val json = u.asJson
     json.nospaces
   }
