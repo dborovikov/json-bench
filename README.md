@@ -1,5 +1,14 @@
 # Scala JSON libs benchmark using JMH
 
+|Library    |Version|
+|-----------|-------|
+|argonaut   |6.1-M6 |
+|jackson    |2.5.2  |
+|jawn       |0.7.4  |
+|play-json  |2.3.8  |
+|spray-json |1.3.1  |
+
+ 
 Run:
 
     sbt run
